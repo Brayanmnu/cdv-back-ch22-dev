@@ -43,6 +43,7 @@ async def insert_maker(maker: Maker):
         cursor = conn.cursor()
 
         query = "select cantidad-(select count(1) from makerv2 m ) as disponible from aforo"
+        
         cursor.execute(query)
         records = cursor.fetchone()
         disponible = records[0]
