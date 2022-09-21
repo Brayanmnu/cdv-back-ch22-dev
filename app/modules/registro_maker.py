@@ -41,7 +41,7 @@ async def insert_maker(maker: Maker):
         
         conn = utils.conexion_postgres(host,port,db,usr,pwd)
         cursor = conn.cursor()
-        query = "select count(1) from makerv2 m where nro_doc = %s"
+        query = "select count(1) from makerv2 m where nro_doc = %s and estado=1"
         cursor.execute(query,(maker.nro_doc,))
         records = cursor.fetchone()
         cant_nro_doc = records[0]
